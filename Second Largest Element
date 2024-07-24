@@ -1,0 +1,26 @@
+//Write a Java function to find the second-largest element in an array of integers. The function should return the second-largest element
+
+package anudip;
+
+public class SecondLargest {
+    public static int findSecondLargest(int[] arr) {
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest && num != largest) {
+                secondLargest = num;
+            }
+        }
+
+        return secondLargest;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {67,56,87,45,86,94};
+        System.out.println("The second largest element is: " + findSecondLargest(arr));
+    }
+}
